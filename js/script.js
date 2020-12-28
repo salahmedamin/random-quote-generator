@@ -70,3 +70,8 @@ const printQuote = ()=>{
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+setInterval(()=>{
+  printQuote()
+  let rand = ()=>Math.floor(Math.random()*255)
+  document.body.style.backgroundColor = `rgb(${rand()},${rand()},${rand()})`
+},2000)
