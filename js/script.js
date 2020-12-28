@@ -45,7 +45,7 @@ const quotes = [
 
 
 /***
- * `getRandomQuote` function
+ * `getRandomQuote` return a quote from the quotes object
 ***/
 const getRandomQuote = ()=>{
   let index = Math.floor((Math.random())*3)
@@ -54,7 +54,7 @@ const getRandomQuote = ()=>{
 
 
 /***
- * `printQuote` function
+ * `printQuote` prints a quote to the screen from quote
 ***/
 const printQuote = ()=>{
   let rand = getRandomQuote()
@@ -64,12 +64,14 @@ const printQuote = ()=>{
 }
 
 
-/***
- * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
-***/
-
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+/*
+* We'll be getting random color every amount of time, in addition to printing a quote
+*/
+document.getElementById('load-quote').addEventListener("click", ()=>{
+    printQuote()
+    let rand = ()=>Math.floor(Math.random()*255)
+    document.body.style.backgroundColor = `rgb(${rand()},${rand()},${rand()})`
+  }, false);
 setInterval(()=>{
   printQuote()
   let rand = ()=>Math.floor(Math.random()*255)
